@@ -76,15 +76,15 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutItem">
       <RootProperty Name="Text" />
-      <RootProperty Name="Icon" />
       <RootProperty Name="IsEnabled" />
+      <RootProperty Name="Icon" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutSubItem">
       <RootProperty Name="Text" />
       <RootProperty Name="Icon" />
-      <RootProperty Name="Items" />
       <RootProperty Name="IsEnabled" />
+      <RootProperty Name="Items" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutSeparator" />
     <RootType FullName="Windows.UI.Xaml.Controls.FontIcon">

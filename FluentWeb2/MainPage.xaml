@@ -25,7 +25,7 @@
 
 
 
-        <Grid x:Name="AppTitleBar" Background="Transparent">
+        <Grid x:Name="AppTitleBar" Background="Transparent" x:FieldModifier="public">
             <!-- Width of the padding columns is set in LayoutMetricsChanged handler. -->
             <!-- Using padding columns instead of Margin ensures that the background
                  paints the area under the caption control buttons (for transparent buttons). -->
@@ -56,12 +56,12 @@
         <Button x:Name="Bmore" Content="&#xE10C;" FontFamily="Segoe Fluent Icons" Height="32" Grid.Column="3" Width="38" Margin="92,9,0,0" VerticalAlignment="Top" Click="Bmore_Click_1" ToolTipService.ToolTip="More">
             <Button.Flyout>
                 <MenuFlyout Placement="Bottom">
-                    <MenuFlyoutItem Text="Favorite">
+                    <MenuFlyoutItem Text="Favorite" IsEnabled="False">
                         <MenuFlyoutItem.Icon>
                             <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe728;"/>
                         </MenuFlyoutItem.Icon>
                     </MenuFlyoutItem>
-                    <MenuFlyoutItem Text="Downloads">
+                    <MenuFlyoutItem Text="Downloads" x:Name="downFlyout" Click="downFlyout_Click">
                         <MenuFlyoutItem.Icon>
                             <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe896;"/>
                         </MenuFlyoutItem.Icon>
@@ -71,7 +71,7 @@
                             <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe81c;"/>
                         </MenuFlyoutSubItem.Icon>
                     </MenuFlyoutSubItem>
-                        <MenuFlyoutSubItem Text="Settings">
+                    <MenuFlyoutSubItem Text="Settings" IsEnabled="False">
                         <MenuFlyoutSubItem.Icon>
                             <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE713;"/>
                         </MenuFlyoutSubItem.Icon>
@@ -107,36 +107,36 @@
                         </MenuFlyoutItem>
                     </MenuFlyoutSubItem>
                     <MenuFlyoutSeparator/>
-                    <MenuFlyoutSubItem Text="Apps">
+                    <MenuFlyoutSubItem Text="Apps" IsEnabled="False">
                         <MenuFlyoutSubItem.Icon>
                             <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe74c;"/>
                         </MenuFlyoutSubItem.Icon>
                     </MenuFlyoutSubItem>
                     <MenuFlyoutSeparator/>
-                    <MenuFlyoutItem Text="New tab">
+                    <MenuFlyoutItem Text="New tab" IsEnabled="False">
                         <MenuFlyoutItem.Icon>
                             <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xf7ed;"/>
                         </MenuFlyoutItem.Icon>
                     </MenuFlyoutItem>
-                    <MenuFlyoutItem Text="New window">
+                    <MenuFlyoutItem Text="New window" IsEnabled="False">
                         <MenuFlyoutItem.Icon>
                             <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xf7ed;"/>
                         </MenuFlyoutItem.Icon>
                     </MenuFlyoutItem>
                     <MenuFlyoutSeparator/>
-                    <MenuFlyoutItem Text="Find...">
+                    <MenuFlyoutItem Text="Find" IsEnabled="False">
                         <MenuFlyoutItem.Icon>
                             <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe721;"/>
                         </MenuFlyoutItem.Icon>
                     </MenuFlyoutItem>
-                    <MenuFlyoutItem Text="Close">
+                    <MenuFlyoutItem x:Name="closeFlyout" Text="Close" Click="closeFlyout_Click">
                         
                     </MenuFlyoutItem>
                 </MenuFlyout>
             </Button.Flyout>
 
         </Button>
-        <muxc:WebView2 x:Name="webview" Opacity="0.95" NavigationStarting="webview_NavigationStarting_1" Source="https://google.com" Margin="0,1,0,0" Grid.ColumnSpan="5"  NavigationCompleted="webview_NavigationCompleted_1"  Grid.Row="1"/>
+        <muxc:WebView2 x:Name="webview"  Opacity="0.95" NavigationStarting="webview_NavigationStarting_1" Source="https://google.com" Margin="0,1,0,0" Grid.ColumnSpan="5"  NavigationCompleted="webview_NavigationCompleted_1"  Grid.Row="1"/>
         <TextBox x:Name="Tsearch" GotFocus="Tsearch_GotFocus" KeyDown="Tserach_KeyDown" ToolTipService.ToolTip="Search"
                  AutomationProperties.Name="Basic AutoSuggestBox" Grid.Column="2" PlaceholderText="Search or enter URL" VerticalAlignment="Top" Margin="0,9" Height="32"/>
         <muxc:ProgressBar x:Name="progressBar" Height="0" IsIndeterminate="True"  Grid.ColumnSpan="5" Grid.Row="1" Margin="0,1,0,0" Visibility="Visible" VerticalAlignment="Top"/>

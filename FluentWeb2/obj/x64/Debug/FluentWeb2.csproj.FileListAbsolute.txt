@@ -53,3 +53,4 @@ C:\Users\eliga\source\repos\FluentWeb2\FluentWeb2\obj\x64\Debug\ProjectArchitect
 C:\Users\eliga\source\repos\FluentWeb2\FluentWeb2\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637669793380000000.json
 C:\Users\eliga\source\repos\FluentWeb2\FluentWeb2\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.winmd_637781390800000000.json
 C:\Users\eliga\source\repos\FluentWeb2\FluentWeb2\obj\x64\Debug\.winmd_cache\$Microsoft.Web.WebView2.Core.winmd_637674606580000000.json
+C:\Users\eliga\source\repos\FluentWeb2\FluentWeb2\obj\x64\Debug\.winmd_cache\$Microsoft.Web.WebView2.Core.winmd_637795637520000000.json

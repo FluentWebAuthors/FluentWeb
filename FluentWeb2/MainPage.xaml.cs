@@ -1,4 +1,5 @@
 ﻿using Microsoft.UI.Xaml.Controls;
+using Microsoft.Web.WebView2.Core;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using web = Microsoft.Web.WebView2.Core;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -43,6 +45,8 @@ namespace FluentWeb2
             ApplicationViewTitleBar titleBar =
                 ApplicationView.GetForCurrentView().TitleBar;
             titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.ButtonHoverBackgroundColor = Color.FromArgb(100, 255, 255, 255);
+            titleBar.ButtonPressedBackgroundColor = Colors.Transparent;
 
             // Set XAML element as a drag region.
             Window.Current.SetTitleBar(AppTitleBar);
@@ -187,7 +191,6 @@ namespace FluentWeb2
                 Bback.IsEnabled = true;
             }
 
-            Cats.Add(str);
 
         }
         private void Brefresh_Click(object sender, RoutedEventArgs e)
@@ -299,83 +302,6 @@ namespace FluentWeb2
             return newItem;
         }
 
-        private List<string> Cats = new List<string>()
-        {
-            "google.com ",
-            "youtube.com ",
-            "gmail.com ",
-            "microsoft.com ",
-            "amazon.com ",
-            "outlook.com ",
-            "yahoo.com ",
-            "dailymotion.com ",
-            "start.com ",
-            "apple.com ",
-            "samsung.com ",
-            "github.com ",
-            "facebook.com ",
-            "mica.com ",
-            "twitter.com ",
-            "reddit.com ",
-            "tiktok.com ",
-            "snapchat.com ",
-            "instagram.com ",
-            "duckduckgo.com ",
-            "netflix.com ",
-
-
-
-        };
-
-        bool historyIsTrue = false;
-
-        private void Tsearch_TextChanged_1(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
-        {
-            var suitableItems = new List<string>();
-            var splitText = sender.Text.ToLower().Split(" ");
-            foreach (var cat in Cats)
-            {
-                var found = splitText.All((key) =>
-                {
-                    return cat.ToLower().Contains(key);
-                });
-                if (found)
-                {
-                    suitableItems.Add(cat);
-                }
-                if (historyIsTrue == true)
-                {
-                    string o = " ";
-                    suitableItems.Add(cat);
-                }
-            }
-
-            sender.ItemsSource = suitableItems;
-        }
-
-        private void ShowHistory(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
-        {
-            var suitableItems = new List<string>();
-            var splitText = sender.Text.ToLower().Split(" ");
-            foreach (var cat in Cats)
-            {
-                var found = splitText.All((key) =>
-                {
-                    return cat.ToLower().Contains(key);
-                });
-
-                string o = " ";
-                suitableItems.Add(cat);
-
-            }
-
-            sender.ItemsSource = suitableItems;
-        }
-        private void Tsearch_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
-        {
-
-        }
-
         private void googleAsDefault_Click(object sender, RoutedEventArgs e)
         {
             homeUri = "https://www.google.com/";
@@ -463,7 +389,12 @@ namespace FluentWeb2
             if (webview.CanGoForward) { forceRedo.IsEnabled = true; } else { forceRedo.IsEnabled = false; }
 
             if (b == 1) { progressBar.Visibility = Visibility.Visible; }
+
+            
         }
+
+        int x = 0;
+        string show;
 
         private void webview_NavigationCompleted_1(WebView2 sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs args)
         {
@@ -471,8 +402,19 @@ namespace FluentWeb2
             progressBar.Visibility = Visibility.Collapsed;
             progressBar.IsEnabled = false;
             Tsearch.Text = webview.Source.ToString();
-            b = 1;
+
+            x++;
+            string documentTitle = webview.CoreWebView2.DocumentTitle;
+            MenuFlyoutItem menuFlyoutItem = new MenuFlyoutItem();
+            show = x + " - " + documentTitle;
+            menuFlyoutItem.Text = show;
+            menuFlyoutItem.Tag = webview.Source;
+            menuFlyoutItem.Click += MenuFlyoutItem_Click;
+
+            
+            Bhistory.Items.Add(menuFlyoutItem);
             //AppTitle.Text = webview.Source.LocalPath;
+
         }
 
         private void Tsearch_GotFocus(object sender, RoutedEventArgs e)
@@ -489,6 +431,29 @@ namespace FluentWeb2
         {
             
             NavBar.Height = new GridLength(80);
+        }
+
+        private void closeFlyout_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
+
+        }
+
+        string flyoutUri;
+
+        private void downFlyout_Click(object sender, RoutedEventArgs e)
+        {
+                       
+        }
+
+        private void MenuFlyoutItem_Click(object sender, RoutedEventArgs e)
+        {
+            MenuFlyoutItem item = sender as MenuFlyoutItem;
+            flyoutUri = item.Tag.ToString();
+            
+            webview.Source = new Uri(flyoutUri);
+
+            
         }
     }
 }

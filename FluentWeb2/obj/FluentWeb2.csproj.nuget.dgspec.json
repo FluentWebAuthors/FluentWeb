@@ -46,6 +46,10 @@
             "Microsoft.UI.Xaml": {
               "target": "Package",
               "version": "[2.8.0-prerelease.220118001, )"
+            },
+            "Microsoft.Web.WebView2": {
+              "target": "Package",
+              "version": "[1.0.1108.44, )"
             }
           },
           "imports": [
