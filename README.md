@@ -5,11 +5,8 @@
 </p>
 
 **<p align="center">FluentWeb is a Chromium-based web browser with the Windows 11 design language.</p>**
+
 <p align="center" style="text-decoration:none" href="https://github.com/FluentWebAuthors/FluentWeb/releases/download/autoupdate/FluentWeb.msixbundle">
     <img src="https://img.shields.io/badge/Sideload-Download-purple.svg?style=flat-round" alt="Sideload link" />
 </p>
 
-<p align="center" style="text-decoration:none" href="https://github.com/FluentWebAuthors/FluentWeb/releases/download/autoupdate/FluentWeb.msixbundle">
-    <img src="https://img.shields.io/badge/Microsft%20Store-Coming%20soon-blue.svg?style=flat-round" alt="Sideload link" />
-</p>
-    
