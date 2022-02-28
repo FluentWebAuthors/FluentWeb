@@ -4,4 +4,4 @@
   <h1 align="center">FluentWeb</h1>
 </p>
 
-FluentWeb is a Chromium-based web browser with the Windows 11 design language.
+**<p align="center">FluentWeb is a Chromium-based web browser with the Windows 11 design language.</p>**
