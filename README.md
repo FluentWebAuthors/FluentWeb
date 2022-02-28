@@ -9,4 +9,3 @@
 <p align="center" style="text-decoration:none" href="https://github.com/FluentWebAuthors/FluentWeb/releases/download/autoupdate/FluentWeb.msixbundle">
     <img src="https://img.shields.io/badge/Sideload-Download-purple.svg?style=flat-round" alt="Sideload link" />
 </p>
-
