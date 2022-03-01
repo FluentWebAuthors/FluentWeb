@@ -5,5 +5,5 @@
 </p>
 
 **<p align="center">FluentWeb is a Chromium-based web browser with the Windows 11 design language.</p>**
-*<p align="center">Download here : https://bit.ly/DownloadFluentWeb</p>*
-*<p align="center">More info here : https://github.com/FluentWebAuthors/FluentWeb/releases/tag/v0.1</p>*
+*<p align="center">More infos soon</p>*
+
